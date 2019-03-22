@@ -1,0 +1,10 @@
+// fonts
+@font-face {
+  font-family: "Distant Galaxy";
+  src: url("./DISTGRG_.ttf") format('truetype');
+}
+
+$space-font: "Distant Galaxy", Helvetica, Arial, sans-serif;
+
+// colors
+$yellow: #e5b13a;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.scss';
 import { Characters } from "./components/Characters";
 import { Pagination } from "./components/Pagination";
 
