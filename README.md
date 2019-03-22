@@ -24,13 +24,48 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+- [x] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+
+React JS is a frontend JavaScript framework. It tries to solve the problem of
+how to implement an interactive, efficient and collaborative website.
+
+Using vanilla JavaScript, all interaction and modification ultimately manifests
+itself as manipulation of the DOM. This can make it very difficult to track,
+manage and reason about state.
+
+React attempts to fix this via the virtual DOM. React handles to flow of state
+and rending, allowing developers to make functional components (in terms of
+input-output, not necessarily definition) dispatched from what is essentially a
+state machine while being ignorant of any mutation.
 
 - [ ] What does it mean to _think_ in react?
 
-- [ ] Describe state.
+Thinking in React means to break your frontend into meaningful components, have
+those components render data into the desired output, implementing state to
+track and manage data, and pass that state to the components to construct the
+webpage.
 
-- [ ] Describe props.
+It is a declarative state of mind where reusable, stateless components are
+implemented to render data without being aware of state or mutation, and
+localizing the necessary state and mutation to a logically consistent place.
+
+- [x] Describe state.
+
+In classical physics, state is a complete description of a system such that given the
+state, the system may be reconstructed. In computer science, the definition is
+similarly represents the description of our program. 
+
+In React, state is a special mutable property. This is because it is wonderful
+to have a description of our programs state, but it won't be very useful unless
+we are able to use that description to evolve and interact with the program. 
+
+When we modify the state, we then recompute the components of our program that
+subscribed to the state that changed. 
+
+- [x] Describe props.
+
+Props are arguments given to a component that are passed as keywords in an
+object to the functional or class component during construction or execution.
 
 ## Project Set Up
 
