@@ -7,8 +7,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-        starwarsChars: [],
-        planets: {}
+      starwarsChars: [],
+      loadingChars: true,
+      planets: {}
     };
   }
 
@@ -20,6 +21,7 @@ class App extends Component {
     // feel free to research what this code is doing.
     // At a high level we are calling an API to fetch some starwars data from the open web.
     // We then take that data and resolve it our state.
+    this.setState({loadingChars: true});
     fetch(URL)
       .then(res => {
         return res.json();
@@ -27,7 +29,8 @@ class App extends Component {
       .then(data => {
         this.setState({ starwarsChars: data.results,
                         prevChars: data.previous,
-                        nextChars: data.next });
+                        nextChars: data.next,
+                        loadingChars: false });
       })
       .catch(err => {
         throw new Error(err);
@@ -69,7 +72,8 @@ class App extends Component {
       <div className="App">
         <h1 className="Header">React Wars</h1>
         <Characters characters={this.state.starwarsChars}
-                    getStateAPI={this.getStateAPI} />
+                    getStateAPI={this.getStateAPI}
+                    loading={this.state.loadingChars} />
         <Pagination handleNavigation={this.getCharacters}
                     prev={this.state.prevChars}
                     next={this.state.nextChars} />
