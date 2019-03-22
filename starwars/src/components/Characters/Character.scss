@@ -1,0 +1,37 @@
+@import "src/styles/_variables";
+
+.character {
+    background: $twilight;
+    background-image: linear-gradient($twilight, $shadow);
+    max-width: 300px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-bottom: 3px solid $clay;
+    align-self: center;
+    .name {
+        color: $yellow;
+        font-family: $space-font;
+        font-size: 1.6rem;
+        text-align: center;
+        position: relative;
+        margin-bottom: 5px;
+        &::after {
+            bottom: -12.5px;
+            left: 15%;
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 1px;
+            background: $brick;
+        }
+    }
+    .info-line {
+        color: $charm;
+        margin-top: 20px;
+    }
+    .info {
+        color: $peach;
+    }
+}

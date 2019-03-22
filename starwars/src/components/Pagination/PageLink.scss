@@ -1,0 +1,21 @@
+
+@import "src/styles/_variables";
+
+.page-link {
+    color: $yellow;
+    font-family: $space-font;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: $clay;
+    padding: 20px;
+    max-width: 80px;
+    display: inline-block;
+    border-radius: 10px;
+    &:hover {
+        background: $brick;
+    }
+    &.no-page {
+        visibility: hidden;
+    }
+}
+
