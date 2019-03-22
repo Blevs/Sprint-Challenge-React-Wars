@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Characters } from "./components/Characters";
+import { Pagination } from "./components/Pagination";
 
 class App extends Component {
   constructor() {
@@ -24,7 +25,9 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({ starwarsChars: data.results,
+                        prevChars: data.previous,
+                        nextChars: data.next });
       })
       .catch(err => {
         throw new Error(err);
@@ -66,6 +69,9 @@ class App extends Component {
         <h1 className="Header">React Wars</h1>
         <Characters characters={this.state.starwarsChars}
                     getStateAPI={this.getStateAPI} />
+        <Pagination handleNavigation={this.getCharacters}
+                    prev={this.state.prevChars}
+                    next={this.state.nextChars} />
       </div>
     );
   }
