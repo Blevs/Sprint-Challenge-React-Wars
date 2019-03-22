@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+        starwarsChars: [],
+        planets: {}
     };
   }
 
@@ -30,11 +31,41 @@ class App extends Component {
       });
   };
 
+  setStateAPI = (stateKey, URL) => {
+    fetch(URL)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        this.setState(prevState => {
+          return {[stateKey]: {...prevState[stateKey], [URL]: data}};
+        });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  };
+
+  getStateAPI = (stateKey, URL) => {
+    if (this.state[stateKey].hasOwnProperty(URL)) {
+      return this.state[stateKey][URL];
+    } else {
+      this.setState(prevState => {
+        return (prevState.hasOwnProperty(URL)
+                ? prevState
+                : {[stateKey]: {...prevState[stateKey], [URL]: false}});
+      });
+      this.setStateAPI(stateKey, URL);
+      return this.state[stateKey][URL];
+    }
+  };
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <Characters characters={this.state.starwarsChars} />
+        <Characters characters={this.state.starwarsChars}
+                    getStateAPI={this.getStateAPI} />
       </div>
     );
   }
