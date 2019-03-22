@@ -1,5 +1,6 @@
 import React from "react";
 import PageLink from "./PageLink.js";
+import "./Pagination.scss";
 
 const Pagination = ({handleNavigation, prev, next}) => {
   return (

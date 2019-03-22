@@ -1,4 +1,5 @@
 import React from "react";
+import "./PageLink.scss"
 
 const PageLink = ({text, handleNavigation, loc}) => {
   return (

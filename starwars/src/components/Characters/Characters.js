@@ -1,5 +1,6 @@
 import React from "react";
 import Character from "./Character.js";
+import "./Characters.scss";
 
 const Characters = ({characters, getStateAPI}) => {
   return (
